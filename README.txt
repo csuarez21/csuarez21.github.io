@@ -1,1 +1,1 @@
-Hello! My name is Colin Suarez. I am a recent graduate from Saint Mary’s College of California where I received my M.S. in Business Analytics degree (Cohort 12, Dec 2022). I currently work as a business data analyst at a chiropractic office.
+Hello! My name is Colin Suarez. I am a recent graduate from Saint Mary’s College of California where I received my M.S. in Business Analytics degree (Cohort 12, Dec 2022). I currently work as a business analyst at a chiropractic office.
