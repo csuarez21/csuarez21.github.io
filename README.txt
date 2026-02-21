@@ -1,11 +1,11 @@
-I am a Business Systems Analyst and Data Analyst specializing in SQL-based analysis, KPI reporting, and operational analytics.
+Business Systems Analyst and Data Analyst with experience in SQL development, KPI reporting, and operational analytics.
 
-In my professional work, I focus on data validation, structured querying, and translating business questions into measurable insights that support cross-functional decision-making. I work extensively with relational databases, performance metrics, and reporting workflows to ensure data accuracy and clarity.
+I specialize in:
+- Writing optimized SQL queries (T-SQL, MySQL)
+- Data validation and quality assurance
+- Translating stakeholder requirements into measurable metrics
+- Delivering performance insights through structured reporting
 
-My interests include:
-- Product & Support Analytics  
-- Business Intelligence  
-- Operational Performance Measurement  
-- Healthcare Data Analytics  
+My work centers around transforming raw data into reliable, decision-ready information that drives operational improvement.
 
-I am passionate about transforming structured datasets into actionable insights that improve efficiency, visibility, and strategic outcomes.
+Currently focused on opportunities in product analytics, business intelligence, and data-driven operational strategy.
