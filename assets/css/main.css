@@ -1668,3 +1668,19 @@ body.is-preload #footer {
 #header .content p .normal-case {
   text-transform: none !important;
 }
+
+/* Disable Dimension's "use-middle" divider line (fixes line cutting through nav text) */
+#header nav.use-middle:after {
+	display: none !important;
+}
+
+/* Make nav buttons equal width so long labels don't crowd */
+#header nav ul li {
+	flex: 1;
+}
+
+#header nav ul li a {
+	min-width: 0;          /* override the template's min-width */
+	padding: 0 1rem;       /* slightly tighter so 4 items fit nicely */
+	white-space: nowrap;   /* keep each label on one line */
+}
