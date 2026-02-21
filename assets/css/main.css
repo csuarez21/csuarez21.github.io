@@ -1348,12 +1348,11 @@ body.is-preload #bg:before {
 }
 
 #header nav ul li {
-	padding-left: 0;
-	border-left: solid 1px #ffffff;
+    padding-left: 0;
 }
 
-#header nav ul li:first-child {
-	border-left: 0;
+#header nav ul li + li {
+    border-left: 1px solid #ffffff;
 }
 
 #header nav ul li a {
@@ -1707,3 +1706,4 @@ body.is-preload #footer {
 	padding: 0 1rem !important;
 	white-space: nowrap !important;
 }
+
