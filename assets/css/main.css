@@ -1664,3 +1664,7 @@ body.is-preload #footer {
 .normal-case {
 	text-transform: none !important;
 }
+
+#header .content p .normal-case {
+  text-transform: none !important;
+}
