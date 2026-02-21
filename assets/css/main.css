@@ -1684,3 +1684,26 @@ body.is-preload #footer {
 	padding: 0 1rem;       /* slightly tighter so 4 items fit nicely */
 	white-space: nowrap;   /* keep each label on one line */
 }
+
+/* --- FIX NAV DIVIDER LINE CUTTING THROUGH TEXT --- */
+
+/* 1) Kill the vertical "use-middle" line */
+#header nav.use-middle::after,
+#header nav.use-middle:after {
+	display: none !important;
+}
+
+/* 2) Optional: equal-width buttons so long labels fit cleanly */
+#header nav ul {
+	display: flex !important;
+}
+
+#header nav ul li {
+	flex: 1 !important;
+}
+
+#header nav ul li a {
+	min-width: 0 !important;
+	padding: 0 1rem !important;
+	white-space: nowrap !important;
+}
