@@ -1673,3 +1673,11 @@ body.is-preload #footer {
 	display: none !important;
 }
 
+@media screen and (max-width: 480px) {
+    #header .content p {
+        letter-spacing: 0.1rem;
+        font-size: 0.75rem;
+    }
+}
+
+
