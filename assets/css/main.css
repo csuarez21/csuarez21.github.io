@@ -1679,3 +1679,13 @@ body.is-preload #footer {
         font-size: 0.75rem;
     }
 }
+
+.hero-subtitle span {
+  display: block;
+  margin-top: 0.75rem;
+}
+
+.hero-subtitle span:first-child {
+  margin-top: 0;
+}
+
