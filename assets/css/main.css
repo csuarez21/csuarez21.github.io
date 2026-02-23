@@ -1680,4 +1680,33 @@ body.is-preload #footer {
     }
 }
 
+/* Cleaner mobile header formatting */
+@media screen and (max-width: 736px) {
+
+  #header .content p.role {
+    text-transform: uppercase;
+    letter-spacing: 0.12rem;
+    font-size: 0.9rem;
+    margin: 1rem 0 0.5rem 0;
+  }
+
+  #header .content p.skills-line {
+    text-transform: uppercase;
+    letter-spacing: 0.12rem;
+    font-size: 0.75rem;
+    opacity: 0.85;
+    margin: 0 0 1rem 0;
+  }
+
+  #header .content p.tagline {
+    text-transform: none !important;
+    letter-spacing: 0.02rem;
+    font-size: 0.85rem;
+    line-height: 1.6;
+    opacity: 0.9;
+    margin: 0;
+  }
+}
+
+
 
