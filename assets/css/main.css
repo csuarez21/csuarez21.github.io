@@ -1689,17 +1689,15 @@ body.is-preload #footer {
   margin-top: 0;
 }
 
-/* TARI Tableau: show full dashboard without scrolling (desktop-first) */
+/* TARI Tableau: show full desktop dashboard without scrolling */
 .tari-viz-fit {
   width: 100%;
-  margin: 1rem auto 2rem;
-  overflow: hidden;        /* no scrollbars */
+  margin: 1rem 0 2rem;
+  overflow: hidden;
   background: #fff;
   border-radius: 8px;
 }
 
-.tari-viz-fit .tableauPlaceholder,
-.tari-viz-fit .tableauViz {
-  width: 100% !important;
-  max-width: 100% !important;
+.tari-viz-fit .tableauPlaceholder {
+  width: 100%;
 }
