@@ -1689,15 +1689,3 @@ body.is-preload #footer {
   margin-top: 0;
 }
 
-/* TARI Tableau: show full desktop dashboard without scrolling */
-.tari-viz-fit {
-  width: 100%;
-  margin: 1rem 0 2rem;
-  overflow: hidden;
-  background: #fff;
-  border-radius: 8px;
-}
-
-.tari-viz-fit .tableauPlaceholder {
-  width: 100%;
-}
