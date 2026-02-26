@@ -103,7 +103,7 @@
                   
 <h4>Interactive Dashboard Preview</h4>
 
-<div class="tari-embed-fit">
+<div class="tari-viz-fit">
   <div class="tableauPlaceholder" id="viz1772074770891" style="position: relative;">
     <noscript>
       <a href="#">
@@ -129,41 +129,46 @@
       <param name="language" value="en-US" />
     </object>
   </div>
-
-  <script type="text/javascript">
-  var divElement = document.getElementById("viz1772074770891");
-  var vizElement = divElement.getElementsByTagName("object")[0];
-
-  // Set a "design width" that matches your Tableau dashboard's intended width
-  var DESIGN_WIDTH = 1200;
-
-  function fitViz() {
-    var containerWidth = divElement.offsetWidth;
-
-    // Compute scale factor to fit the dashboard inside the container
-    var scale = containerWidth / DESIGN_WIDTH;
-
-    // Apply scale to the viz
-    vizElement.style.width = DESIGN_WIDTH + "px";
-    vizElement.style.transform = "scale(" + scale + ")";
-    vizElement.style.transformOrigin = "top left";
-
-    // Height should scale too (827 is your original desktop height)
-    var designHeight = 827;
-    vizElement.style.height = designHeight + "px";
-
-    // Give the container the *scaled* height so nothing gets cut off
-    divElement.style.height = Math.round(designHeight * scale) + "px";
-  }
-
-  fitViz();
-  window.addEventListener("resize", fitViz);
-
-  var scriptElement = document.createElement("script");
-  scriptElement.src = "https://public.tableau.com/javascripts/api/viz_v1.js";
-  vizElement.parentNode.insertBefore(scriptElement, vizElement);
-</script>
 </div>
+
+<!-- ✅ Script goes AFTER the wrapper -->
+<script type="text/javascript">
+  (function () {
+    var divElement = document.getElementById("viz1772074770891");
+    var vizElement = divElement.getElementsByTagName("object")[0];
+
+    // Desktop design size (keeps Tableau from switching to stacked/mobile layout)
+    var DESIGN_WIDTH = 1200;
+    var DESIGN_HEIGHT = 827;
+
+    function fitNoScroll() {
+      // Use the outer wrapper width (the grey panel width)
+      var wrapper = divElement.closest(".tari-viz-fit");
+      var containerWidth = wrapper ? wrapper.offsetWidth : divElement.offsetWidth;
+
+      // Force desktop dimensions
+      vizElement.style.width = DESIGN_WIDTH + "px";
+      vizElement.style.height = DESIGN_HEIGHT + "px";
+
+      // Scale down to fit container (no scroll)
+      var scale = containerWidth / DESIGN_WIDTH;
+      vizElement.style.transform = "scale(" + scale + ")";
+      vizElement.style.transformOrigin = "top left";
+
+      // Set placeholder height so the full viz shows
+      divElement.style.height = Math.round(DESIGN_HEIGHT * scale) + "px";
+    }
+
+    // Run now and on resize
+    fitNoScroll();
+    window.addEventListener("resize", fitNoScroll);
+
+    // Load Tableau JS once
+    var scriptElement = document.createElement("script");
+    scriptElement.src = "https://public.tableau.com/javascripts/api/viz_v1.js";
+    vizElement.parentNode.insertBefore(scriptElement, vizElement);
+  })();
+</script>
     <br/>
 <p>
 Designed and implemented an end-to-end SQL-based performance measurement system to analyze recruitment funnel performance, 
@@ -357,24 +362,3 @@ Insights were translated into visual summaries to highlight actionable areas for
 
     </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
