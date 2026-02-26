@@ -103,7 +103,7 @@
                   
 <h4>Interactive Dashboard Preview</h4>
 
-<div class="tari-viz-fit">
+<div class="tari-viz-fit" id="tariVizWrap">
   <div class="tableauPlaceholder" id="viz1772074770891" style="position: relative;">
     <noscript>
       <a href="#">
@@ -133,37 +133,47 @@
 
 <script type="text/javascript">
 (function () {
-  var divElement = document.getElementById("viz1772074770891");
-  var vizElement = divElement.getElementsByTagName("object")[0];
+  var wrap = document.getElementById("tariVizWrap");
+  var placeholder = document.getElementById("viz1772074770891");
+  var vizElement = placeholder.getElementsByTagName("object")[0];
 
+  // Desktop design size (forces desktop layout)
   var DESIGN_WIDTH = 1200;
   var DESIGN_HEIGHT = 827;
 
-  function fitNoWhiteSpace() {
-    var wrapper = divElement.closest(".tari-viz-fit");
-    var containerWidth = wrapper.offsetWidth;
+  function sizeViz() {
+    // Use wrapper width (grey panel)
+    var containerWidth = wrap.clientWidth || placeholder.clientWidth;
 
-    // Force desktop layout dimensions
+    // Prevent divide-by-zero on first paint
+    if (!containerWidth || containerWidth < 50) return;
+
+    // Force desktop dimensions on the object
     vizElement.style.width = DESIGN_WIDTH + "px";
     vizElement.style.height = DESIGN_HEIGHT + "px";
 
-    // Calculate scale
+    // Scale to fit without scroll
     var scale = containerWidth / DESIGN_WIDTH;
-
-    // Apply scale
     vizElement.style.transform = "scale(" + scale + ")";
     vizElement.style.transformOrigin = "top left";
 
-    // 🔥 Critical Fix: set wrapper height instead of placeholder height
-    wrapper.style.height = Math.round(DESIGN_HEIGHT * scale) + "px";
+    // Set BOTH wrapper + placeholder heights so nothing collapses in the modal article
+    var scaledHeight = Math.round(DESIGN_HEIGHT * scale);
+    wrap.style.height = scaledHeight + "px";
+    placeholder.style.height = scaledHeight + "px";
   }
 
-  // Run after Tableau JS loads
+  // Load Tableau API, then size
   var scriptElement = document.createElement("script");
   scriptElement.src = "https://public.tableau.com/javascripts/api/viz_v1.js";
   scriptElement.onload = function () {
-    fitNoWhiteSpace();
-    window.addEventListener("resize", fitNoWhiteSpace);
+    // Wait a tick so HTML5UP modal layout finishes opening
+    setTimeout(function () {
+      sizeViz();
+      window.addEventListener("resize", function () {
+        setTimeout(sizeViz, 50);
+      });
+    }, 150);
   };
 
   vizElement.parentNode.insertBefore(scriptElement, vizElement);
@@ -361,5 +371,6 @@ Insights were translated into visual summaries to highlight actionable areas for
 
     </body>
 </html>
+
 
 
