@@ -100,12 +100,10 @@
 
 
 <h3>TARI – Talent Acquisition Reporting & Insights</h3>
-
-<div class="tari-embed-fit">                    
+                  
 <h4>Interactive Dashboard Preview</h4>
 
-<!-- TARI Tableau Embed (Responsive) -->
-<div class="tableau-wrap">
+<div class="tari-embed-fit">
   <div class="tableauPlaceholder" id="viz1772074770891" style="position: relative;">
     <noscript>
       <a href="#">
@@ -131,59 +129,31 @@
       <param name="language" value="en-US" />
     </object>
   </div>
-</div>
 
-<style>
-  /* Keeps it centered + prevents overflow */
-  .tableau-wrap {
-    width: 100%;
-    max-width: 1200px;     /* optional: cap desktop width so it doesn’t look huge */
-    margin: 0 auto 1.5rem; /* center + spacing */
-  }
-
-  /* Helps avoid horizontal scroll on mobile */
-  .tableauPlaceholder {
-    width: 100%;
-    overflow: hidden;
-  }
-</style>
-
-<script type="text/javascript">
-  (function () {
+  <script type="text/javascript">
     var divElement = document.getElementById("viz1772074770891");
     var vizElement = divElement.getElementsByTagName("object")[0];
 
-    function resizeViz() {
-      var w = divElement.offsetWidth;
+    vizElement.style.width = "100%";
 
-      // Always full width
-      vizElement.style.width = "100%";
+    var w = divElement.offsetWidth;
+    var h;
 
-      // Responsive height:
-      // - desktop/tablet: proportional height (good look)
-      // - mobile: taller (Tableau filters stack)
-      var h;
-      if (w <= 520) {
-        h = 1200;                 // mobile: give room for filters + charts
-      } else if (w <= 900) {
-        h = Math.round(w * 0.80); // tablet
-      } else {
-        h = Math.round(w * 0.68); // desktop
-      }
-
-      // Safety clamp so it doesn’t get too short/tall
-      h = Math.max(650, Math.min(h, 950));
-      vizElement.style.height = h + "px";
+    if (w <= 520) {
+      h = 1150;
+    } else if (w <= 900) {
+      h = Math.round(w * 0.78);
+    } else {
+      h = Math.round(w * 0.65);
     }
 
-    resizeViz();
-    window.addEventListener("resize", resizeViz);
+    h = Math.max(650, Math.min(h, 900));
+    vizElement.style.height = h + "px";
 
     var scriptElement = document.createElement("script");
     scriptElement.src = "https://public.tableau.com/javascripts/api/viz_v1.js";
     vizElement.parentNode.insertBefore(scriptElement, vizElement);
-  })();
-</script>                    
+  </script>
 </div>
     <br/>
 <p>
@@ -378,6 +348,7 @@ Insights were translated into visual summaries to highlight actionable areas for
 
     </body>
 </html>
+
 
 
 
