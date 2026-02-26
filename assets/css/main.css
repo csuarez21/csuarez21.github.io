@@ -1715,3 +1715,21 @@ body.is-preload #footer {
 }
 
 
+/* Scale Tableau viz down to fit container without horizontal scroll */
+.tari-embed-fit {
+  width: 100%;
+  overflow: hidden;
+}
+
+/* The element Tableau injects often ends up wider than the container */
+.tari-embed-fit .tableauPlaceholder {
+  width: 100% !important;
+  max-width: 100% !important;
+}
+
+/* Optional: ensures no accidental horizontal scrollbars */
+#main, article, body {
+  overflow-x: hidden;
+}
+
+
