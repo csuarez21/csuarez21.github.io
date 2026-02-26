@@ -1689,3 +1689,29 @@ body.is-preload #footer {
   margin-top: 0;
 }
 
+/* --- TARI Tableau embed: keep inside the grey content panel --- */
+.tari-embed-fit {
+  width: 100%;
+  max-width: 100%;
+  margin: 0 auto 1.5rem;
+}
+
+/* Force Tableau elements to respect container width */
+.tari-embed-fit .tableauPlaceholder,
+.tari-embed-fit .tableauViz {
+  width: 100% !important;
+  max-width: 100% !important;
+}
+
+/* Prevent horizontal overflow on smaller screens */
+.tari-embed-fit {
+  overflow: hidden;
+}
+
+/* Optional: give it a nice frame consistent with your theme */
+.tari-embed-fit .tableauPlaceholder {
+  background: #fff;
+  border-radius: 6px;
+}
+
+
