@@ -102,9 +102,87 @@
 <h3>TARI – Talent Acquisition Reporting & Insights</h3>
 
 <h4>Interactive Dashboard Preview</h4>
-                  
 
-<div class='tableauPlaceholder' id='viz1772074770891' style='position: relative'><noscript><a href='#'><img alt='Talent Acquisition KPI Dashboard ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;TA&#47;TARI_Recruiting_KPI_Dashboard&#47;TalentAcquisitionKPIDashboard&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='TARI_Recruiting_KPI_Dashboard&#47;TalentAcquisitionKPIDashboard' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;TA&#47;TARI_Recruiting_KPI_Dashboard&#47;TalentAcquisitionKPIDashboard&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='language' value='en-US' /></object></div>                <script type='text/javascript'>                    var divElement = document.getElementById('viz1772074770891');                    var vizElement = divElement.getElementsByTagName('object')[0];                    if ( divElement.offsetWidth > 800 ) { vizElement.style.width='1200px';vizElement.style.height='827px';} else if ( divElement.offsetWidth > 500 ) { vizElement.style.width='1200px';vizElement.style.height='827px';} else { vizElement.style.width='100%';vizElement.style.height='1577px';}                     var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>
+<!-- TARI Tableau Embed (Responsive) -->
+<div class="tableau-wrap">
+  <div class="tableauPlaceholder" id="viz1772074770891" style="position: relative;">
+    <noscript>
+      <a href="#">
+        <img alt="Talent Acquisition KPI Dashboard"
+             src="https://public.tableau.com/static/images/TA/TARI_Recruiting_KPI_Dashboard/TalentAcquisitionKPIDashboard/1_rss.png"
+             style="border: none;" />
+      </a>
+    </noscript>
+
+    <object class="tableauViz" style="display:none;">
+      <param name="host_url" value="https%3A%2F%2Fpublic.tableau.com%2F" />
+      <param name="embed_code_version" value="3" />
+      <param name="site_root" value="" />
+      <param name="name" value="TARI_Recruiting_KPI_Dashboard/TalentAcquisitionKPIDashboard" />
+      <param name="tabs" value="no" />
+      <param name="toolbar" value="yes" />
+      <param name="static_image" value="https://public.tableau.com/static/images/TA/TARI_Recruiting_KPI_Dashboard/TalentAcquisitionKPIDashboard/1.png" />
+      <param name="animate_transition" value="yes" />
+      <param name="display_static_image" value="yes" />
+      <param name="display_spinner" value="yes" />
+      <param name="display_overlay" value="yes" />
+      <param name="display_count" value="yes" />
+      <param name="language" value="en-US" />
+    </object>
+  </div>
+</div>
+
+<style>
+  /* Keeps it centered + prevents overflow */
+  .tableau-wrap {
+    width: 100%;
+    max-width: 1200px;     /* optional: cap desktop width so it doesn’t look huge */
+    margin: 0 auto 1.5rem; /* center + spacing */
+  }
+
+  /* Helps avoid horizontal scroll on mobile */
+  .tableauPlaceholder {
+    width: 100%;
+    overflow: hidden;
+  }
+</style>
+
+<script type="text/javascript">
+  (function () {
+    var divElement = document.getElementById("viz1772074770891");
+    var vizElement = divElement.getElementsByTagName("object")[0];
+
+    function resizeViz() {
+      var w = divElement.offsetWidth;
+
+      // Always full width
+      vizElement.style.width = "100%";
+
+      // Responsive height:
+      // - desktop/tablet: proportional height (good look)
+      // - mobile: taller (Tableau filters stack)
+      var h;
+      if (w <= 520) {
+        h = 1200;                 // mobile: give room for filters + charts
+      } else if (w <= 900) {
+        h = Math.round(w * 0.80); // tablet
+      } else {
+        h = Math.round(w * 0.68); // desktop
+      }
+
+      // Safety clamp so it doesn’t get too short/tall
+      h = Math.max(650, Math.min(h, 950));
+      vizElement.style.height = h + "px";
+    }
+
+    resizeViz();
+    window.addEventListener("resize", resizeViz);
+
+    var scriptElement = document.createElement("script");
+    scriptElement.src = "https://public.tableau.com/javascripts/api/viz_v1.js";
+    vizElement.parentNode.insertBefore(scriptElement, vizElement);
+  })();
+</script>                    
                     
 <p>
 Designed and implemented an end-to-end SQL-based performance measurement system to analyze recruitment funnel performance, 
@@ -298,6 +376,7 @@ Insights were translated into visual summaries to highlight actionable areas for
 
     </body>
 </html>
+
 
 
 
