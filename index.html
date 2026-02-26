@@ -100,9 +100,7 @@
 
 
 <h3>TARI – Talent Acquisition Reporting & Insights</h3>
-<h4>Interactive Dashboard Preview</h4>
-
-<div class="tari-viz-fit" id="tariVizWrap">
+<div class="tari-viz-fit">
   <div class="tableauPlaceholder" id="viz1772074770891" style="position: relative;">
     <noscript>
       <a href="#">
@@ -129,62 +127,44 @@
     </object>
   </div>
 </div>
-                    
+
+<!-- ✅ Script goes AFTER the wrapper -->
 <script type="text/javascript">
-(function () {
-  var wrap = document.getElementById("tariVizWrap") || document.querySelector(".tari-viz-fit");
-  var placeholder = document.getElementById("viz1772074770891");
-  var obj = placeholder.getElementsByTagName("object")[0];
+  (function () {
+    var divElement = document.getElementById("viz1772074770891");
+    var vizElement = divElement.getElementsByTagName("object")[0];
 
-  // Desktop design size (keeps desktop layout)
-  var DESIGN_WIDTH = 1200;
-  var DESIGN_HEIGHT = 827;
+    // Desktop design size (keeps Tableau from switching to stacked/mobile layout)
+    var DESIGN_WIDTH = 1200;
+    var DESIGN_HEIGHT = 827;
 
-  function applyScale() {
-    if (!wrap) return;
-    var containerWidth = wrap.clientWidth || placeholder.clientWidth;
-    if (!containerWidth || containerWidth < 50) return;
+    function fitNoScroll() {
+      // Use the outer wrapper width (the grey panel width)
+      var wrapper = divElement.closest(".tari-viz-fit");
+      var containerWidth = wrapper ? wrapper.offsetWidth : divElement.offsetWidth;
 
-    var scale = containerWidth / DESIGN_WIDTH;
+      // Force desktop dimensions
+      vizElement.style.width = DESIGN_WIDTH + "px";
+      vizElement.style.height = DESIGN_HEIGHT + "px";
 
-    // Force desktop size
-    obj.style.width = DESIGN_WIDTH + "px";
-    obj.style.height = DESIGN_HEIGHT + "px";
+      // Scale down to fit container (no scroll)
+      var scale = containerWidth / DESIGN_WIDTH;
+      vizElement.style.transform = "scale(" + scale + ")";
+      vizElement.style.transformOrigin = "top left";
 
-    // Scale to fit
-    obj.style.transform = "scale(" + scale + ")";
-    obj.style.transformOrigin = "top left";
-
-    // IMPORTANT: give enough height + a little buffer
-    var scaledHeight = Math.ceil(DESIGN_HEIGHT * scale) + 24;
-    wrap.style.height = scaledHeight + "px";
-    placeholder.style.height = scaledHeight + "px";
-  }
-
-  // Load Tableau JS ONCE
-  var scriptElement = document.createElement("script");
-  scriptElement.src = "https://public.tableau.com/javascripts/api/viz_v1.js";
-  scriptElement.onload = function () {
-    // Run a few times because HTML5UP animates articles open
-    setTimeout(applyScale, 200);
-    setTimeout(applyScale, 600);
-    setTimeout(applyScale, 1200);
-
-    window.addEventListener("resize", function () {
-      setTimeout(applyScale, 80);
-    });
-
-    // Watch container width changes (modal open/close)
-    if ("ResizeObserver" in window) {
-      var ro = new ResizeObserver(function () {
-        applyScale();
-      });
-      ro.observe(wrap);
+      // Set placeholder height so the full viz shows
+      divElement.style.height = Math.round(DESIGN_HEIGHT * scale) + "px";
     }
-  };
 
-  obj.parentNode.insertBefore(scriptElement, obj);
-})();
+    // Run now and on resize
+    fitNoScroll();
+    window.addEventListener("resize", fitNoScroll);
+
+    // Load Tableau JS once
+    var scriptElement = document.createElement("script");
+    scriptElement.src = "https://public.tableau.com/javascripts/api/viz_v1.js";
+    vizElement.parentNode.insertBefore(scriptElement, vizElement);
+  })();
 </script>
 <p>
 Designed and implemented an end-to-end SQL-based performance measurement system to analyze recruitment funnel performance, 
@@ -378,6 +358,7 @@ Insights were translated into visual summaries to highlight actionable areas for
 
     </body>
 </html>
+
 
 
 
