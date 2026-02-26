@@ -1689,16 +1689,16 @@ body.is-preload #footer {
   margin-top: 0;
 }
 
+/* TARI Tableau embed: no-scroll, stable inside HTML5UP modal article */
 .tari-viz-fit {
   width: 100%;
-  margin: 1rem auto 2rem;
+  min-height: 520px;   /* prevents collapse before Tableau loads */
+  margin: 1rem 0 2rem;
   overflow: hidden;
   background: #fff;
   border-radius: 8px;
-  position: relative;
 }
 
 .tari-viz-fit .tableauPlaceholder {
   width: 100%;
 }
-
